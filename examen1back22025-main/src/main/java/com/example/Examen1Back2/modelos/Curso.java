@@ -5,13 +5,13 @@ import jakarta.persistence.*;
 @Entity
 public class Curso {
 
-    @Id //Se completa @Id
+    @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY) //Se completa @GeneratedValue
     private Integer id;
-    private String nombre; //Se agrega ;
+    private String nombre;
 
     @ManyToOne
-    @JoinColumn(name="fk_docente", referencedColumnName = "id") //Se le quita el ;
+    @JoinColumn(name="fk_docente", referencedColumnName = "id")
     @JsonBackReference(value = "docente-curso")
     Docente docente;
 
@@ -23,7 +23,6 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    //Se agregan Getters y Setters
 
     public Integer getId() {
         return id;
